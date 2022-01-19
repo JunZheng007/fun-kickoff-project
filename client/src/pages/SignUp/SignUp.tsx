@@ -37,27 +37,27 @@ export default function Register(): JSX.Element {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="flex-start"
-          flexDirection="column"
-          className={classes.authWrapper}
-        >
-          <AuthHeader linkTo="/login" asideText="Already have an account?" btnText="Login" />
-          <Box width="100%" maxWidth={450} p={3} alignSelf="center">
-            <Grid container>
-              <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
-                </Typography>
-              </Grid>
+    <Grid container component="main" className={classes.root} justifyContent="center">
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        lg={5}
+        xl={3}
+        elevation={6}
+        component={Paper}
+        alignSelf="center"
+        className={classes.paper}
+      >
+        <Box width="100%" maxWidth={450} p={5} alignSelf="center">
+          <Grid container direction={'column'} justifyContent="center" alignItems="center">
+            <Grid item xs>
+              <Typography className={classes.welcome}>Sign up</Typography>
             </Grid>
-            <SignUpForm handleSubmit={handleSubmit} />
-          </Box>
-          <Box p={1} alignSelf="center" />
+            <Grid item xs component={SignUpForm} handleSubmit={handleSubmit} />
+            <Grid item xs component={AuthHeader} linkTo="/login" asideText="Already a member?" btnText="Login" />
+          </Grid>
         </Box>
       </Grid>
     </Grid>

@@ -12,10 +12,20 @@ const useStyles = makeStyles(() => ({
     paddingTop: 23,
   },
   welcome: {
-    fontSize: 26,
-    paddingBottom: 20,
-    color: '#000000',
-    fontWeight: 700,
+    '&&': {
+      fontSize: 30,
+      fontFamily: 'Roboto, sans-serif',
+      paddingBottom: 20,
+      fontWeight: 700,
+      textAlign: 'center',
+    },
+  },
+  paper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    verticalAlign: 'middle',
   },
 }));
 
