@@ -7,14 +7,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
   },
   label: {
-    fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    '&&': {
+      fontSize: 13,
+      paddingLeft: '5px',
+      fontFamily: 'Roboto',
+      fontWeight: '900',
+    },
   },
   inputs: {
-    marginTop: '.8rem',
-    height: '2rem',
-    padding: '5px',
+    '&&': {
+      fontFamily: 'Roboto',
+      height: '3rem',
+      padding: '5px',
+    },
   },
   forgot: {
     paddingRight: 10,
