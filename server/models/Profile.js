@@ -34,10 +34,6 @@ const profileSchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
-  booking_date: {
-    type: [Date],
-    default: [],
-  },
   rank: {
     type: Number,
     default: 0,
