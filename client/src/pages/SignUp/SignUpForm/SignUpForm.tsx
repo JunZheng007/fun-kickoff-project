@@ -52,16 +52,14 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography className={classes.label}>EMAIL ADDRESS</Typography>
+            <Typography variant="label">EMAIL ADDRESS</Typography>
             <TextField
               id="email"
               fullWidth
               placeholder="Your email"
-              InputProps={{
-                classes: { input: classes.inputs },
-              }}
               name="email"
               autoComplete="email"
+              autoFocus
               helperText={touched.email ? errors.email : ''}
               error={touched.email && Boolean(errors.email)}
               value={values.email}
@@ -69,17 +67,13 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             />
           </Box>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography className={classes.label}>NAME</Typography>
+            <Typography variant="label">NAME</Typography>
             <TextField
               id="username"
               fullWidth
               placeholder="Your name"
-              InputProps={{
-                classes: { input: classes.inputs },
-              }}
               name="username"
               autoComplete="username"
-              autoFocus
               helperText={touched.username ? errors.username : ''}
               error={touched.username && Boolean(errors.username)}
               value={values.username}
@@ -87,14 +81,11 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             />
           </Box>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography className={classes.label}>PASSWORD</Typography>
+            <Typography variant="label">PASSWORD</Typography>
             <TextField
               id="password"
               fullWidth
               placeholder="Create a password"
-              InputProps={{
-                classes: { input: classes.inputs },
-              }}
               type="password"
               autoComplete="current-password"
               helperText={touched.password ? errors.password : ''}

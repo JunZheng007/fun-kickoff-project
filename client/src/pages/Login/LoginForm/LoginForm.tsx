@@ -47,13 +47,11 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography className={classes.label}>EMAIL ADDRESS</Typography>
+            <Typography variant="label">EMAIL ADDRESS</Typography>
             <TextField
               id="email"
               fullWidth
-              InputProps={{
-                classes: { input: classes.inputs },
-              }}
+              placeholder="Your email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -64,12 +62,12 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             />
           </Box>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography className={classes.label}>PASSWORD</Typography>
+            <Typography variant="label">Password</Typography>
             <TextField
               id="password"
               fullWidth
+              placeholder="Your password"
               InputProps={{
-                classes: { input: classes.inputs },
                 endAdornment: <Typography className={classes.forgot}>Forgot?</Typography>,
               }}
               type="password"

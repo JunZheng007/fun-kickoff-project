@@ -15,15 +15,6 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     paddingTop: 23,
   },
-  welcome: {
-    '&&': {
-      fontSize: 30,
-      fontFamily: 'Roboto, sans-serif',
-      paddingBottom: 20,
-      fontWeight: 700,
-      textAlign: 'center',
-    },
-  },
   paper: {
     display: 'flex',
     justifyContent: 'center',

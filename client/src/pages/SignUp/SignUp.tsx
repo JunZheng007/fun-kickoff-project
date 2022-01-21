@@ -53,7 +53,7 @@ export default function Register(): JSX.Element {
         <Box width="100%" maxWidth={450} p={5} alignSelf="center">
           <Grid container direction={'column'} justifyContent="center" alignItems="center">
             <Grid item xs>
-              <Typography className={classes.welcome}>Sign up</Typography>
+              <Typography variant="h1">Sign up</Typography>
             </Grid>
             <Grid item xs component={SignUpForm} handleSubmit={handleSubmit} />
             <Grid item xs component={AuthHeader} linkTo="/login" asideText="Already a member?" btnText="Login" />

@@ -6,21 +6,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  label: {
-    '&&': {
-      fontSize: 13,
-      paddingLeft: '5px',
-      fontFamily: 'Roboto',
-      fontWeight: '900',
-    },
-  },
-  inputs: {
-    '&&': {
-      fontFamily: 'Roboto',
-      height: '3rem',
-      padding: '5px',
-    },
-  },
   forgot: {
     paddingRight: 10,
     color: '#3a8dff',

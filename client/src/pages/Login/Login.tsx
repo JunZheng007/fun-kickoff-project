@@ -52,7 +52,7 @@ export default function Login(): JSX.Element {
         <Box width="100%" maxWidth={450} p={5} alignSelf="center">
           <Grid container direction={'column'} justifyContent="center" alignItems="center">
             <Grid item xs>
-              <Typography className={classes.welcome}>Login</Typography>
+              <Typography variant="h1">Login</Typography>
             </Grid>
             <Grid item xs component={LoginForm} handleSubmit={handleSubmit} />
             <Grid
