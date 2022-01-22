@@ -10,11 +10,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     '&&': {
       fontSize: 14,
       fontWeight: 900,
-      fontFamily: 'Roboto',
-      textAlign: 'center',
-      whiteSpace: 'nowrap',
-      display: 'flex',
-      alignItems: 'center',
       padding: '1rem',
     },
   },
