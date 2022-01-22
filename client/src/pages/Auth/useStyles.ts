@@ -7,10 +7,6 @@ const useStyles = makeStyles(() => ({
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
   },
-  authWrapper: {
-    minHeight: '100vh',
-    paddingTop: 23,
-  },
   paper: {
     display: 'flex',
     justifyContent: 'center',

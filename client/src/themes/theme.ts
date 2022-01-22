@@ -32,6 +32,7 @@ export const theme = createTheme({
       paddingBottom: 20,
       fontWeight: 700,
       textAlign: 'center',
+      textTransform: 'capitalize',
     },
     label: {
       fontSize: 13,
