@@ -56,7 +56,7 @@ export default function Register(): JSX.Element {
               <Typography variant="h1">Sign up</Typography>
             </Grid>
             <Grid item xs component={SignUpForm} handleSubmit={handleSubmit} />
-            <Grid item xs component={AuthHeader} linkTo="/login" asideText="Already a member?" btnText="Login" />
+            <Grid item xs component={AuthHeader} linkTo="/login" asideText="Already a member?" linkText="Login" />
           </Grid>
         </Box>
       </Grid>

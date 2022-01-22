@@ -18,12 +18,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: '1rem',
     },
   },
-  accBtn: {
-    borderRadius: theme.shape.borderRadius,
-    filter: 'drop-shadow(0px 2px 6px rgba(74,106,149,0.2))',
-    backgroundColor: '#ffffff',
+  authLink: {
     color: 'red',
-    boxShadow: 'none',
   },
 }));
 

@@ -61,7 +61,7 @@ export default function Login(): JSX.Element {
               component={AuthHeader}
               linkTo="/signup"
               asideText="Don't have an account?"
-              btnText="Sign Up"
+              linkText="Sign Up"
             />
           </Grid>
         </Box>

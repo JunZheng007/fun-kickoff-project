@@ -6,18 +6,18 @@ import useStyles from './useStyles';
 interface Props {
   linkTo: string;
   asideText: string;
-  btnText: string;
+  linkText: string;
 }
 
-const AuthFooter = ({ linkTo, asideText, btnText }: Props): JSX.Element => {
+const AuthFooter = ({ linkTo, asideText, linkText }: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
     <Box p={1} display="flex" justifyContent="center" alignSelf="center" className={classes.authHeader}>
       <Typography className={classes.accAside}>
         {asideText + '\xa0'}
-        <Link to={linkTo} color="inherit" className={classes.authLink}>
-          {btnText}
+        <Link to={linkTo} className={classes.authLink}>
+          {linkText}
         </Link>
       </Typography>
     </Box>
