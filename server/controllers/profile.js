@@ -4,8 +4,20 @@ const asyncHandler = require("express-async-handler");
 exports.createProfile = asyncHandler(async (req, res, next) => {
   const profile = new Profile(req.body.profile);
 
-  const emailExists = await Profile.findOne({ email: profile.email });
+  if (!profile.email) {
+    res.status(400);
+    throw new Error("miss request element: email");
+  }
+  if (!profile.firstName) {
+    res.status(400);
+    throw new Error("miss request element: first name");
+  }
+  if (!profile.lastName) {
+    res.status(400);
+    throw new Error("miss request element: last name");
+  }
 
+  const emailExists = await Profile.findOne({ email: profile.email });
   if (emailExists) {
     res.status(400);
     throw new Error("A profile with that email already exists");
