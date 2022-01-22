@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   authLink: {
-    color: 'red',
+    color: theme.palette.error.light,
   },
 }));
 
