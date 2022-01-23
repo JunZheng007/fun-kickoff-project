@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useAuth } from '../../context/useAuthContext';
 import { useSocket } from '../../context/useSocketContext';
-import { useHistory } from 'react-router-dom';
-import { CircularProgress, Typography, Grid } from '@mui/material';
+import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import { Navbar } from '../../components/Navbar/Navbar';
-import { RandomFactCard } from '../../components/FactCard/RandomFactCard';
-import { facts } from '../../mocks/mockFacts';
+import ChatSideBanner from '../../components/ChatSideBanner/ChatSideBanner';
 
 export default function Dashboard(): JSX.Element {
   const { loggedInUser } = useAuth();
   const { initSocket } = useSocket();
   const history = useHistory();
+  const { path } = useRouteMatch();
 
   useEffect(() => {
     initSocket();
@@ -28,15 +28,17 @@ export default function Dashboard(): JSX.Element {
       <Navbar />
       <Grid sx={{ padding: 5 }} container rowSpacing={5} columnSpacing={2}>
         <Grid item xs={12}>
-          <Typography variant="h4" component="h1">
-            Welcome to random facts!
-          </Typography>
+          <Switch>
+            <Route path={`${path}/profile`}>
+              <ChatSideBanner loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="*">
+              <Typography variant="h4" component="h1">
+                Default content of dashboard
+              </Typography>
+            </Route>
+          </Switch>
         </Grid>
-        {facts.map(({ id, fact, coverUrl: cover }) => (
-          <Grid item key={id} xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <RandomFactCard fact={fact} cover={cover} />
-          </Grid>
-        ))}
       </Grid>
     </>
   );

@@ -4,17 +4,20 @@ import { AppBar, Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem
 import { AccountCircle, Logout as LogoutIcon, Person as ProfileIcon } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import useStyles from './useStyles';
+import { useHistory, useLocation } from 'react-router-dom';
+import { User } from '../../interface/User';
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { loggedInUser, logout } = useAuth();
+  const history = useHistory();
+  const { pathname } = useLocation();
 
   const open = Boolean(anchorEl);
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-    console.log(loggedInUser);
   };
 
   const handleClose = () => {
@@ -26,12 +29,19 @@ const Navbar: React.FC = () => {
     logout();
   };
 
-  const getUserPhoto = (user: any) => {
-    return user.photo;
+  const getUserPhoto = (user: User) => {
+    return undefined;
+  };
+
+  const goToProfile = () => {
+    handleClose();
+    if (pathname !== '/dashboard/profile') {
+      history.push('/dashboard/profile');
+    }
   };
 
   return (
-    <AppBar position="fixed" color="inherit">
+    <AppBar position="sticky" color="inherit">
       <Toolbar>
         <img src={require('../../Images/logo.png')} alt="Loving Sitter" />
         <Box sx={{ flexGrow: 1 }} />
@@ -70,7 +80,7 @@ const Navbar: React.FC = () => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={goToProfile}>
                 <ListItemIcon>
                   <ProfileIcon fontSize="small" />
                 </ListItemIcon>
