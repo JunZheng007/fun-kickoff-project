@@ -56,14 +56,11 @@ const Navbar: React.FC = () => {
               color="inherit"
               className={classes.photoButton}
             >
-              {
-                // TODO: change the function after I know how to get user's photo
-                getUserPhoto(loggedInUser) ? (
-                  <img src={getUserPhoto(loggedInUser)} className={classes.photo} />
-                ) : (
-                  <AccountCircle fontSize="large" className={classes.photo} />
-                )
-              }
+              {getUserPhoto(loggedInUser) ? (
+                <img src={getUserPhoto(loggedInUser)} className={classes.photo} alt="user photo" />
+              ) : (
+                <AccountCircle fontSize="large" className={classes.photo} />
+              )}
             </IconButton>
             <Menu
               id="menu-appbar"
