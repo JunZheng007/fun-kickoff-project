@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/useAuthContext';
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-} from '@mui/material';
-import { Menu as MenuIcon, AccountCircle } from '@mui/icons-material';
-import { Person as ProfileIcon, Logout as LogoutIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import { AppBar, Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Toolbar } from '@mui/material';
+import { AccountCircle, Logout as LogoutIcon, Person as ProfileIcon } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import useStyles from './useStyles';
+import { useHistory, useLocation } from 'react-router-dom';
+import { User } from '../../interface/User';
 
 const Navbar: React.FC = () => {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { loggedInUser, logout } = useAuth();
+  const history = useHistory();
+  const { pathname } = useLocation();
 
   const open = Boolean(anchorEl);
 
@@ -33,15 +29,22 @@ const Navbar: React.FC = () => {
     logout();
   };
 
+  const getUserPhoto = (user: User) => {
+    return undefined;
+  };
+
+  const goToProfile = () => {
+    handleClose();
+    if (pathname !== '/dashboard/profile') {
+      history.push('/dashboard/profile');
+    }
+  };
+
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" color="inherit">
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          My App
-        </Typography>
+        <img src={require('../../Images/logo.png')} alt="Loving Sitter" />
+        <Box sx={{ flexGrow: 1 }} />
         {loggedInUser && (
           <>
             <IconButton
@@ -51,8 +54,13 @@ const Navbar: React.FC = () => {
               aria-haspopup="true"
               onClick={handleMenuOpen}
               color="inherit"
+              className={classes.photoButton}
             >
-              <AccountCircle />
+              {getUserPhoto(loggedInUser) ? (
+                <img src={getUserPhoto(loggedInUser)} className={classes.photo} alt="user photo" />
+              ) : (
+                <AccountCircle fontSize="large" className={classes.photo} />
+              )}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -69,13 +77,7 @@ const Navbar: React.FC = () => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
-                <ListItemIcon>
-                  <SettingsIcon fontSize="small" />
-                </ListItemIcon>
-                <ListItemText>Settings</ListItemText>
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={goToProfile}>
                 <ListItemIcon>
                   <ProfileIcon fontSize="small" />
                 </ListItemIcon>

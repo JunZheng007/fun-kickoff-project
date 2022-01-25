@@ -25,7 +25,7 @@ function App(): JSX.Element {
                 <Route exact path="/signup">
                   <Auth type="sign up" />
                 </Route>
-                <Route exact path="/dashboard">
+                <Route path="/dashboard">
                   <Dashboard />
                 </Route>
                 <Route path="*">
