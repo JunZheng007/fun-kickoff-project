@@ -47,7 +47,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography variant="label">EMAIL ADDRESS</Typography>
+            <Typography variant="label">email address</Typography>
             <TextField
               id="email"
               fullWidth
@@ -62,7 +62,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             />
           </Box>
           <Box display="flex" flexDirection={'column'} alignItems="start" marginTop={3}>
-            <Typography variant="label">Password</Typography>
+            <Typography variant="label">password</Typography>
             <TextField
               id="password"
               fullWidth
